@@ -1,0 +1,30 @@
+
+import random
+
+secret = random.randint(1, 100)
+attempts = 0
+
+print("NUMBER GUESSING GAME")
+print("Guess a number between 1 and 100!")
+
+while True:
+    try:
+        guess = int(input("Enter your guess: "))
+    except ValueError:
+        print("Please enter a valid number.")
+        continue
+
+    if not 1 <= guess <= 100:
+        print("Enter a number between 1 and 100.")
+        continue
+
+    attempts += 1
+
+    if guess < secret:
+        print("Too low! Try again.")
+    elif guess > secret:
+        print("Too high! Try again.")
+    else:
+        print("Correct! You won!")
+        print("Attempts:", attempts)
+        break
